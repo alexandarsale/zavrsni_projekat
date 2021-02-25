@@ -1,9 +1,18 @@
 package tests;
 
+import java.awt.AWTException;
+import java.awt.HeadlessException;
+import java.awt.Rectangle;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
+
+import javax.imageio.ImageIO;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
@@ -68,22 +77,24 @@ public abstract class BasicTest {
 		this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
 	}
-	
-	//@AfterClass
-	
-	//public void clean() {
-		//this.driver.quit();
-	//}
+
 	
 	
 	@AfterMethod
-	public void after () {
-		driver.manage().deleteAllCookies();
-		driver.navigate().refresh();
+		public void takeScreenshot(ITestResult result) throws HeadlessException, AWTException, IOException {
+			String testTime = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss'.jpg'").format(new Date());
+			if (ITestResult.FAILURE == result.getStatus()) {
+			BufferedImage screenshoot = new Robot()
+			.createScreenCapture((new Rectangle(Toolkit.getDefaultToolkit().getScreenSize())));
+			File screenshot = new File("screenshot.jpg");
+			ImageIO.write(screenshoot, "jpg", new File("screenshots\\" + testTime));
 		
+	}driver.manage().deleteAllCookies();
+	
+		}
+	
+	@AfterClass
+	public void close() {
+		driver.quit();
 	}
-	
-	
-	
-	
 }
