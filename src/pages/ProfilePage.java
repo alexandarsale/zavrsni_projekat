@@ -59,25 +59,27 @@ public class ProfilePage extends BasicPage1 {
 	}
 	
 	public WebElement getSavePersonalInfo () {
-		return driver.findElement(By.xpath("//*[@class='row'][5]/input"));
+		return driver.findElement(By.name("btn_submit"));
 	}
 	
 	
 	public WebElement getUploadButn () {
-		return driver.findElement(By.xpath("//a[@title='Upload']"));
+		return driver.findElement(By.xpath("/html/body/div[6]/div/div/div/div[2]/div/div/div[2]/div/div[1]/div/a"));
 	}
 	
 	public WebElement getRemoveBtn () {
-		return driver.findElement(By.xpath("//a[@title='Remove']"));
+		return driver.findElement(By.xpath("//*[@id='profileInfo']/div/div[1]/div/a[2]"));
 	}
 	
 	public WebElement getUpload () {
 		return driver.findElement(By.xpath("//*[@type='file']"));
 	}
 	
-	public void uploadPicture (String picture) {
+	public void uploadPicture (String picture) throws InterruptedException {
 		this.js.executeScript("arguments[0].click();", this.getUploadButn());
-		this.getUploadButn().sendKeys(picture);
+		Thread.sleep(3000);
+		WebElement input = driver.findElement(By.xpath("//*[@id=\"form-upload\"]/input"));
+		input.sendKeys(picture);
 	}
 	
 	public void deleteProfilePhoto () {

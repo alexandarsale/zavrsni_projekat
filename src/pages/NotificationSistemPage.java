@@ -14,8 +14,7 @@ public class NotificationSistemPage extends BasicPage1 {
 	}
 	
 	public WebElement getMessage () {
-		return driver.findElement(By.xpath("//*[contains(@class, 'alert--success') or contains(@class, 'alert--danger')][contains(@style,'display: block')]\r\n" + 
-				""));
+		return driver.findElement(By.xpath("//*[contains(@class, 'alert--success') or contains(@class, 'alert--danger')][contains(@style,'display: block')] "));
 	}
 	
 	public String MessageText() {
@@ -23,8 +22,9 @@ public class NotificationSistemPage extends BasicPage1 {
 	}
 	
 	
-	public void waiting () {
-		waiter.until(ExpectedConditions.invisibilityOfElementWithText(By.xpath("//*[contains(@class, 'system_message')]"), "Login Successfull"));
+	public void waitNotification () {
+		WebElement Msg = driver.findElement(By.xpath("//*[contains(@class, 'system_message')]"));
+		waiter.until(ExpectedConditions.attributeToBe(Msg, "style", "display: none;"));
 	}
 
 }

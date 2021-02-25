@@ -69,24 +69,21 @@ public abstract class BasicTest {
 		
 	}
 	
-	@AfterClass
+	//@AfterClass
 	
-	public void clean() {
-		this.driver.quit();
-	}
+	//public void clean() {
+		//this.driver.quit();
+	//}
 	
 	
 	@AfterMethod
-	
-	public void takeScreenShotOnFailure(ITestResult testResult) throws IOException { 
-		if (testResult.getStatus() == ITestResult.FAILURE) { 
-			TakesScreenshot scrShot =((TakesScreenshot)driver);
-			File source = scrShot.getScreenshotAs(OutputType.FILE);
-			
-			FileHandler.copy(source, new File("./screenshots/2021-23-2-20-20-01.png"));
-				
-		}driver.manage().deleteAllCookies();
+	public void after () {
+		driver.manage().deleteAllCookies();
+		driver.navigate().refresh();
+		
 	}
+	
+	
 	
 	
 }

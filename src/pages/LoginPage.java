@@ -30,9 +30,12 @@ public class LoginPage extends BasicPage1{
 	}
 	
 	
-	public void UserLogin () {
-		this.getEmail().sendKeys("customer@dummyid.com");
-		this.getPassword().sendKeys("12345678a");
+	public void UserLogin (String email, String password) {
+		this.getEmail().clear();
+		
+		this.getEmail().sendKeys(email);
+		this.getPassword().clear();
+		this.getPassword().sendKeys(password);
 		this.getRememberMe().click();
 		this.getLoginBtn().click();
 	}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="55135" started-at="2021-02-25T21:40:08 CET" finished-at="2021-02-25T21:41:04 CET">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="55135" started-at="2021-02-25T21:40:08 CET" finished-at="2021-02-25T21:41:04 CET">
+      <class name="tests.MealItemTest">
+        <test-method status="PASS" signature="setup()[pri:0, instance:tests.MealItemTest@6c49835d]" name="setup" is-config="true" duration-ms="2229" started-at="2021-02-25T21:40:08 CET" finished-at="2021-02-25T21:40:11 CET">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="clearCart()[pri:3, instance:tests.MealItemTest@6c49835d]" name="clearCart" duration-ms="51703" started-at="2021-02-25T21:40:11 CET" finished-at="2021-02-25T21:41:02 CET">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- clearCart -->
+        <test-method status="PASS" signature="after()[pri:0, instance:tests.MealItemTest@6c49835d]" name="after" is-config="true" duration-ms="1166" started-at="2021-02-25T21:41:02 CET" finished-at="2021-02-25T21:41:04 CET">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- after -->
+      </class> <!-- tests.MealItemTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
